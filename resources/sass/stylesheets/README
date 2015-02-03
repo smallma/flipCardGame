@@ -1,0 +1,13 @@
+// Modules Folder
+@import variable  //專門放變數  
+@import mixin  // mixin
+
+// Partials Folder
+    // phone/tablet Folder
+    @import reset;  // reset也有可能會用到變數 所以放在base後import
+    @import extend // 合併CSS用，裡面都是使用%的符號來取代class的「.」符號。  
+    @import index // 撰寫Sass 首頁樣式...
+
+// Vendor Folder - 放第三方plugin
+@import "vendor/colorpicker";  
+@import "vendor/jquery.ui.core";

@@ -1,0 +1,63 @@
+@mixin turn180($zIndex: 10)
+  .x-list-item
+    .turn180
+      position: relative 
+      +perspective(1000)  
+
+      .flipper
+        +transform-style(preserve-3d) 
+        +transition(all 0.8s)
+      
+        & > * 
+          position: absolute
+          top: 0      
+          +transform-style(preserve-3d)
+          &:first-child 
+            z-index: $zIndex + 2
+            left: 0
+            +backface-visibility(hidden) 
+            & + * 
+              z-index: $zIndex + 1
+              right: 0
+              +transform(rotateY(180deg)) 
+              +backface-visibility(hidden)
+    &.x-item-selected
+      .flipper
+        +transform(rotateY(180deg))  
+        &:first-child  
+          z-index: $zIndex + 1 
+          & + * 
+            z-index: $zIndex + 2
+     
+.x-list
+  +turn180  
+
+
+
+@mixin turn180v1($zIndex: 10)
+  position: relative 
+  +perspective(1000)  
+
+  .flipper
+    +transform-style(preserve-3d) 
+    +transition(all 0.8s) 
+    &:active  
+      +transform(rotateY(180deg))  
+      &:first-child  
+        z-index: $zIndex + 1 
+        & + * 
+          z-index: $zIndex + 2
+
+    & > * 
+      position: absolute
+      top: 0      
+      +transform-style(preserve-3d)
+      &:first-child 
+        z-index: $zIndex + 2
+        left: 0
+        +backface-visibility(hidden) 
+        & + * 
+          z-index: $zIndex + 1
+          right: 0
+          +transform(rotateY(180deg)) 
+          +backface-visibility(hidden)
