@@ -17,6 +17,14 @@ Ext.application({
         'Ext.MessageBox'
     ],
 
+    models: [
+        'Card'
+    ],
+
+    stores: [
+        'Cards'
+    ],
+    
     views: [
         'Main'
     ],

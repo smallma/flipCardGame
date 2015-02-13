@@ -9,6 +9,7 @@ Ext.define('flipCard.view.Main', {
             {
                 xtype: 'list',
                 flex: 1,
+                // disableSelection: true,
                 cls: 'cardList',
                 data: [
                     {
